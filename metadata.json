@@ -1,0 +1,6 @@
+{
+  "name": "The Great Kiwi Permaculture Tour 2027",
+  "description": "Connecting permaculture hosts with event guests across Aotearoa New Zealand. Features region-by-region date rollouts, hands-on event sessions, direct checkout with unique references, manual host verification, and integrated accommodation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

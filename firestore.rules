@@ -1,0 +1,58 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Users core account identity profile
+    // Public read for steward/host display; strictly owner-only write
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isOwner(userId);
+    }
+
+    // Dedicated Tour & Travel Preferences
+    // Strictly owner-only read & write for private travel & party details
+    match /tour_preferences/{userId} {
+      allow read: if isOwner(userId);
+      allow write: if isOwner(userId);
+    }
+
+    // Bookings: Public creation for direct bank transfer passes; read & update by guests/hosts
+    match /bookings/{bookingId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if true;
+    }
+
+    // Itineraries: Roadtrip itinerary stops
+    match /itineraries/{userId} {
+      allow read: if true;
+      allow write: if isOwner(userId);
+    }
+
+    // Properties: Permaculture tour stops (public read; authenticated host write)
+    match /properties/{propertyId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // Events: Tour sessions and workshops (public read; authenticated host write)
+    match /events/{eventId} {
+      allow read: if true;
+      allow write: if isAuthenticated();
+    }
+
+    // Community Chat messages
+    match /chats/{messageId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if isAuthenticated();
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "entities": {
+    "users": {
+      "description": "Core user account identity profiles across the kiwi permaculture community",
+      "fields": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "phone": { "type": "string" },
+        "managedPropertyId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "tour_preferences": {
+      "description": "Dedicated tour, roadtrip, party, and travel preferences per traveler account",
+      "fields": {
+        "userId": { "type": "string" },
+        "travelStyle": { "type": "string" },
+        "homeRegion": { "type": "string" },
+        "dietaryNotes": { "type": "string" },
+        "groupName": { "type": "string" },
+        "partyMembers": { "type": "array" },
+        "seedSwapOfferings": { "type": "string" },
+        "emergencyContact": { "type": "string" },
+        "bookOnBehalfAllowed": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "bookings": {
+      "description": "Direct bank transfer bookings made by guests for property visits, workshops and accommodations",
+      "fields": {
+        "userId": { "type": "string" },
+        "propertyId": { "type": "string" },
+        "propertyName": { "type": "string" },
+        "referenceCode": { "type": "string" },
+        "guestName": { "type": "string" },
+        "guestEmail": { "type": "string" },
+        "guestPhone": { "type": "string" },
+        "totalNzdDue": { "type": "number" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "confirmedAt": { "type": "string" },
+        "dietaryNotes": { "type": "string" },
+        "components": { "type": "array" }
+      }
+    },
+    "itineraries": {
+      "description": "Guest roadtrip itineraries containing selected property stops",
+      "fields": {
+        "userId": { "type": "string" },
+        "propertyIds": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "properties": {
+      "description": "Permaculture properties and tour stops across New Zealand",
+      "fields": {
+        "hostUserId": { "type": "string" },
+        "name": { "type": "string" },
+        "region": { "type": "string" },
+        "district": { "type": "string" },
+        "hostName": { "type": "string" },
+        "hostEmail": { "type": "string" },
+        "bankDetails": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      }
+    },
+    "events": {
+      "description": "Permaculture tour events, workshops, sessions and farm tours",
+      "fields": {
+        "propertyId": { "type": "string" },
+        "title": { "type": "string" },
+        "activityType": { "type": "string" },
+        "pricingType": { "type": "string" },
+        "priceAmount": { "type": "number" },
+        "description": { "type": "string" },
+        "capacity": { "type": "number" },
+        "spotsRemaining": { "type": "number" },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "hostEmail": { "type": "string" },
+        "hostName": { "type": "string" },
+        "region": { "type": "string" },
+        "district": { "type": "string" },
+        "datesText": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      }
+    }
+  }
+}

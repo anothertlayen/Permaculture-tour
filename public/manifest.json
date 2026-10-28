@@ -1,0 +1,21 @@
+{
+  "name": "The Great Kiwi Permaculture Tour 2027",
+  "short_name": "KiwiPerma27",
+  "description": "Connecting permaculture property hosts with event guests across Aotearoa New Zealand.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF8F3",
+  "theme_color": "#2D5A27",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
